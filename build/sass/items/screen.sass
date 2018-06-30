@@ -1,0 +1,61 @@
+.screen
+  position: relative
+  background: #333
+  width: 100%
+  border: 3px solid black
+  padding-bottom: 56.25%
+  border-radius: 3px 3px 0 0
+  z-index: 5
+  &::after
+    content: ""
+    position: absolute
+    background: #ad2d20
+    width: 100%
+    height: 8%
+    top: 101%
+    clip-path: polygon(50% 100%, 0 0, 100% 0)
+  &::before
+    content: ""
+    background: darken(#ad2d20, 10%)
+    position: absolute
+    top: 100%
+    width: calc(100% + 4px)
+    left: -3px
+    height: 10%
+    border: 1px solid darken(#ad2d20, 30%)
+    border-radius: 0 0 3px 3px
+
+  .leg
+    position: absolute
+    width: 10%
+    background: #222
+    margin-left: 45%
+    height: 25%
+    top: 100%
+    z-index: -1
+    border: 1px solid black
+    &::after
+      content: ""
+      position: absolute
+      width: 50%
+      background: #333
+      height: 100%
+      border-right: 1px solid black
+
+  .foot
+    position: absolute
+    width: 50%
+    background: #222
+    margin-left: 25%
+    height: 4%
+    top: 124%
+    border: 1px solid black
+    border-radius: 10px
+    &::after
+      content: ""
+      position: absolute
+      background: #ad2d20
+      width: 100%
+      height: 90%
+      top: 0%
+      clip-path: polygon(50% 0, 0 100%, 100% 100%)

@@ -1,0 +1,253 @@
+.home-wrapper
+  position: absolute
+  left: 0px
+  top: 0px
+  display: flex
+  flex-direction: column
+  width: 100%
+  height: 100%
+  .floor-wrapper
+    background: $floor-color
+    position: relative
+    flex-grow: 1
+    min-height: 100px
+    bottom: 0
+  .wall-wrapper
+    background: $wall-color
+    position: relative
+    top: 0px
+    height: 66%
+    min-height: 400px
+    z-index: 1
+    .skirting
+      background: lighten($wall-color, 7%)
+      position: absolute
+      bottom: 0px
+      height: 45px
+      width: 100%
+      border-top: 3px solid darken($wall-color, 10%)
+      z-index: -10
+      box-shadow: 0 3px 5px darken($floor-color, 10%)
+
+    .table-wrapper
+      position: absolute
+      margin-left: 50%
+      left: -350px
+      bottom: -40px
+      width: 700px
+      .table
+        position: relative
+        height: 20px
+        background: white
+        border: 2px solid black
+        border-radius: 3px
+        @extend %white-shadow
+        .shadow
+          content: ""
+          position: absolute
+          left: 0
+          right: 0
+          height: 20px
+          border-radius: 3px
+          z-index: -2
+          box-shadow: 20px 235px 70px darken($floor-color, 13%)
+        .leg
+          position: relative
+          height: 250px
+          width: 20px
+          background: white
+          border: 2px solid black
+          border-bottom: 4px solid black
+          border-radius: 3px
+          z-index: -1
+          @extend %white-shadow
+
+          &.left
+            float: left
+            left: 20px
+          &.right
+            float: right
+            right: 20px
+      .computer
+        position: absolute
+        background: $computer-color
+        width: 90px
+        height: 175px
+        right: 55px
+        bottom: 4px
+        border-top: 17px solid #990000
+        border-left: 3px solid #990000
+        border-right: 3px solid #990000
+        border-radius: 5px
+        box-shadow: inset -2px -10px 20px darken($computer-color, 10%), 0 10px 10px darken($floor-color, 10%)
+
+        .foot
+          position: absolute
+          background: darken($computer-color, 10%)
+          width: 15px
+          height: 4px
+          bottom: -4px
+          &.left
+            left: 7px
+          &.right
+            right: 7px
+
+        &:after
+          content: ""
+          position: absolute
+          background: green
+          right: -1px
+          top: -13px
+          width: 36px
+          border-left: 15px solid #990000
+          border-bottom: 13px solid darken($computer-color, 3%)
+
+        &:before
+          content: ""
+          position: absolute
+          left: 0px
+          top: -11px
+          width: 35px
+          border-right: 10px solid transparent
+          border-top: 8px solid darken($computer-color, 3%)
+      .mouse-wrapper
+        position: absolute
+        right: 20px
+        width: 175px
+        height: 3px
+        top: -2px
+        @import 'items/mouse'
+      .keyboard-wrapper
+        position: absolute
+        width: 175px
+        height: 7px
+        margin-left: 50%
+        left: calc(-175px/2)
+        top: 1px
+        z-index: 6
+        @import 'items/keyboard'
+
+      .teacup-wrapper
+        position: absolute
+        bottom: 255px
+        left: 180px
+        width: 40px
+        height: 45px
+        @import 'items/teacup'
+
+      .teddy-wrapper
+        position: absolute
+        width: 32px
+        height: 32px
+        top: -31px
+        left: 20px
+        cursor: pointer
+        @import 'items/teddy'
+        &.star-jump
+          .teddy-body
+            .teddy-head
+              top: -22px
+            .arm
+              top: 0px
+              transform: rotate(180-55deg)
+              &.left
+                transform: rotate(55deg)
+            .leg
+              transform: rotate(-40deg)
+              top: 23px
+              &.right
+                transform: rotate(180+40deg)
+
+
+    .screen-wrapper
+      position: absolute
+      margin-left: 50%
+      left: -100px
+      bottom: 245px
+      width: 200px
+      @import 'items/screen'
+
+@media screen and (max-width: 1100px)
+  .website-content
+    margin-left: 0px
+    left: 0px
+    width: 100%
+    height: 100%
+    .home-wrapper
+      .floor-wrapper
+        width: 100%
+      .wall-wrapper
+        width: 100%
+        .table-wrapper
+          margin-left: 5%
+          left: 0
+          width: 90%
+          .table
+            .shadow
+              box-shadow: 20px 185px 70px darken($floor-color, 13%)
+            .leg
+              height: 200px
+          .computer
+            width: 75px
+            height: 125px
+            &:after
+              content: ""
+              position: absolute
+              background: green
+              right: 0px
+              top: -13px
+              width: 26px
+              border-left: 15px solid #990000
+              border-bottom: 13px solid darken($computer-color, 3%)
+
+            &:before
+              content: ""
+              position: absolute
+              left: 0px
+              top: -11px
+              width: 27px
+              border-right: 10px solid transparent
+              border-top: 8px solid darken($computer-color, 3%)
+          .mouse-wrapper
+            width: 25%
+            .mousemat
+              .mouse
+                width: 30px
+                height: 15px
+                top: -15px
+                left: -15px
+                .scroll
+                  width: 6px
+                  height: 5px
+                  top: -3px
+                  left: -3px
+          .teacup-wrapper
+            margin-left: 50%
+            left: -160px
+            bottom: 205px
+        .screen-wrapper
+          bottom: 195px
+
+@media screen and (max-width: 530px)
+  .website-content
+    .home-wrapper
+      .wall-wrapper
+        .table-wrapper
+          .keyboard-wrapper
+            left: calc(-125px/2)
+            width: 125px
+          .teacup-wrapper
+            width: 30px
+            height: 35px
+            margin-left: 50%
+            left: -110px
+            bottom: 205px
+          .teddy-wrapper
+            top: 170px
+            left: 65px
+            .teddy-body
+              box-shadow: 3px 5px 10px 3px #513819
+        .screen-wrapper
+          left: -75px
+          width: 150px
+          bottom: 188px

@@ -1,0 +1,9 @@
+- var headtexts = [{text: "About", img: "about-img"}, {text: "Portfolio", img: "portfolio-img"}, {text: "Skills", img: "skills-img"}, {text: "Contact", img: "contact-img"}];
+- var imgpath = "assets/";
+
+.content-menu-wrapper
+  include ./arrow
+  for contentwrapper in headtexts
+    .content(class=contentwrapper.text)
+      img(src=imgpath+contentwrapper.img+".png")
+      h1(class="option-text")= contentwrapper.text

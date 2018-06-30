@@ -1,0 +1,27 @@
+.keyboard
+  display: flex
+  flex-direction: row
+  background: black
+  border-radius: 0 0 5px 5px
+  width: 100%
+  height: 100%
+  .small-key
+    position: relative
+    background: lighten($computer-color, 10%)
+    margin: 0 0.55%
+    border-top: 1px solid black
+    border-left: 1px solid black
+    border-right: 1px solid black
+    top: -70%
+    width: 3.5%
+    height: 60%
+    &:hover
+      top: -45%
+    &.left
+      margin-left: 2.85%
+    &.right
+      margin-right: 2.85%
+    &.insert
+      width: 7%
+    &.space
+      width: 23%
