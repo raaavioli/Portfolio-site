@@ -4,6 +4,17 @@
 .content-menu-wrapper
   include ./arrow
   for contentwrapper in headtexts
-    .content(class=contentwrapper.text)
+    .thumbnail-wrapper(class= contentwrapper.text)
       img(src=imgpath+contentwrapper.img+".png")
       h1(class="option-text")= contentwrapper.text
+    .info(class= contentwrapper.text)
+      .wrapper
+        .head
+          if contentwrapper.text == "About"
+            img(src=imgpath+"about-thin.png")
+          else
+            img(src=imgpath+contentwrapper.img+".png")
+            
+          h1(class="option-text")= contentwrapper.text
+          include ./arrow
+          //if contentwrapper.text == "About"

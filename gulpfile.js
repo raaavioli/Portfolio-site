@@ -64,7 +64,7 @@ gulp.task('browser-reload', ()=> {
 gulp.task('watch', () => {
 	gulp.watch(paths.sass + '/**/*.sass', ['sass']);
 	gulp.watch(paths.jade + '/**/*.jade', ['jade-rebuild']);
-	gulp.watch(paths.js + '/*.js', ['browser-reload']);
+	gulp.watch(paths.js + '/*.js', ['js', 'browser-reload']);
 });
 
 gulp.task('default', ['browser-sync', 'watch']);

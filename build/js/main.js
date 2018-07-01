@@ -4,6 +4,7 @@ $(document).ready(function(){
   onReturnButtonClick();
   setSmallScreenProperties();
   flipTeddy();
+  scrollDownInfoBar();
 });
 
 function onScreenClick(){
@@ -14,9 +15,14 @@ function onScreenClick(){
 }
 
 function onReturnButtonClick(){
-  var returnbutton = $(".arrow");
-  returnbutton.on('click', function(){
-    $(".content-menu-wrapper").not(".screen .content-menu-wrapper").css("top","-100%");
+  $(".arrow").each(function() {
+    $(this).on('click', function(){
+      if($(this).parent().hasClass("head")){
+        $(".info").css("top","-100%");
+      }else{
+        $(".content-menu-wrapper").not(".screen .content-menu-wrapper").css("top","-100%");
+      }
+    })
   })
 }
 
@@ -56,3 +62,10 @@ function flipTeddy(){
 function randomSign(){
   return Math.floor(Math.random() * 2) == 1 ? "-" : "";
 }
+
+function scrollDownInfoBar(){
+  $(".thumbnail-wrapper").not($(".screen").children().children()).on('click', function() {
+    var classname = $(this).find(".option-text").text();
+    $(".info."+classname).css("top", "0px");
+  });
+};
