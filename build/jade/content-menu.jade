@@ -9,12 +9,15 @@
       h1(class="option-text")= contentwrapper.text
     .info(class= contentwrapper.text)
       .wrapper
-        .head
-          if contentwrapper.text == "About"
-            img(src=imgpath+"about-thin.png")
-          else
-            img(src=imgpath+contentwrapper.img+".png")
+        if contentwrapper.text == "About"
+          .head
+            img(src=imgpath+"about-thin.png") 
+            h1(class="option-text")= contentwrapper.text
+            include ./arrow
             
-          h1(class="option-text")= contentwrapper.text
-          include ./arrow
-          //if contentwrapper.text == "About"
+          include ./About-content
+        else
+          .head
+            img(src=imgpath+contentwrapper.img+".png") 
+            h1(class="option-text")= contentwrapper.text
+            include ./arrow

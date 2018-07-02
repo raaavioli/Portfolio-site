@@ -1,0 +1,41 @@
+.about-content
+  position: relative
+  background: white
+  color: black
+  & section:nth-child(2n)
+    background: #e6e6e6
+  section
+    position: relative
+    background: white
+    padding: 60px 20px
+    font-family: 'Fira Sans', sans-serif
+    overflow: auto
+    display: flex
+    margin: 0px auto 30px
+    h2
+      transform: rotate(-2deg)
+      margin: 0px
+      padding-left: 50px
+      text-transform: uppercase
+      white-space: nowrap
+      font-size: 35px
+    .answer-wrapper
+      position: relative
+      margin-top: 80px
+      margin-left: -80px
+      padding: 10px 30px
+      text-align: center
+      h3
+        color: $about-main
+        position: absolute
+        margin: 0px
+        font-size: 50px
+        left: 5px
+        top: 0
+        &.right
+          left: inherit
+          top: inherit
+          right: 5px
+          bottom: 0px
+
+      p
