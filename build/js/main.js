@@ -5,6 +5,7 @@ $(document).ready(function(){
   setSmallScreenProperties();
   flipTeddy();
   scrollDownInfoBar();
+  hideScrollbarOnResize();
 });
 
 function onScreenClick(){
@@ -17,7 +18,7 @@ function onScreenClick(){
 function onReturnButtonClick(){
   $(".arrow").each(function() {
     $(this).on('click', function(){
-      if($(this).parent().hasClass("head")){
+      if($(this).parent().hasClass("head") || $(this).parent().hasClass("foot")){
         $(".info").css("top","-100%");
       }else{
         $(".content-menu-wrapper").not(".screen .content-menu-wrapper").css("top","-100%");
@@ -69,3 +70,18 @@ function scrollDownInfoBar(){
     $(".info."+classname).css("top", "0px");
   });
 };
+
+function hideScrollbarOnResize(){
+  $(window).resize(function() {
+    $(".info").each(function() {
+      diff = $(this).height() - $(this).find(".wrapper").height();
+      if(diff < 0){
+        $(this).removeClass("scrollhide");
+      }else{
+        $(this).addClass("scrollhide");
+      }
+    });
+  });
+
+  $(window).trigger('resize');
+}

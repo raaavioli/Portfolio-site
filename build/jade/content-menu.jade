@@ -15,9 +15,12 @@
             h1(class="option-text")= contentwrapper.text
             include ./arrow
           include ./About-content
-          .footer
+          .foot
+            include ./arrow
         else
           .head
             img(src=imgpath+contentwrapper.img+".png") 
             h1(class="option-text")= contentwrapper.text
+            include ./arrow
+          .foot
             include ./arrow
