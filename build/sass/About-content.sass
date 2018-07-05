@@ -3,7 +3,7 @@
   background: white
   color: black
   & section:nth-child(2n)
-    background: #e6e6e6
+    background: #f2f2f2
   section
     position: relative
     background: white
@@ -13,25 +13,26 @@
     display: flex
     margin: 0px auto 30px
     h2
-      transform: rotate(-2deg)
       margin: 0px
       padding-left: 50px
       text-transform: uppercase
       white-space: nowrap
       font-size: 35px
+      strong
+        color: $about-comp
     .answer-wrapper
       position: relative
       margin-top: 80px
       margin-left: -80px
       padding: 10px 30px
-      text-align: center
+      text-align: left
       h3
         color: $about-main
         position: absolute
         margin: 0px
         font-size: 50px
-        left: 5px
-        top: 0
+        left: -35px
+        top: 10px
         &.right
           left: inherit
           top: inherit
@@ -39,3 +40,20 @@
           bottom: 0px
 
       p
+        font-weight: 400
+        font-size: 20px
+        word-spacing: 3px
+        line-height: 28px
+        strong
+          position: relative
+          text-decoration: none
+          font-weight: 400
+          color: white
+          padding: 2px 8px
+          background: $about-comp
+        i
+          color: #888
+        a
+          text-decoration: underline
+          cursor: pointer
+          color: fade-in($about-main, 0.2)

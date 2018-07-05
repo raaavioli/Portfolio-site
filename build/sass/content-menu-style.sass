@@ -48,13 +48,13 @@
       object-fit: cover
 
     &.About
-        background: fade-out($about-main, 0.7)
+        background: $about-main
     &.Portfolio
-        background: fade-out($portfolio-main, 0.7)
+        background: $portfolio-main
     &.Skills
-        background: fade-out($skills-main, 0.7)
+        background: $skills-main
     &.Contact
-        background: fade-out($contact-main, 0.7)
+        background: $contact-main
 
 
   .info
@@ -64,8 +64,8 @@
     background: white
     transition: all 0.5s cubic-bezier(0.7, 0, 0.3, 1)
     top: -100%
+    overflow-y: scroll
     z-index: 1
-    overflow: scroll
     .wrapper
       position: absolute
       width: 100%
@@ -107,18 +107,19 @@
       .wrapper
         .head
           background: $about-main
+        @import 'About-content'
     &.Portfolio
       .wrapper
         .head
-          background: fade-out($portfolio-main, 0.7)
+          background: $portfolio-main
     &.Skills
       .wrapper
         .head
-          background: fade-out($skills-main, 0.7)
+          background: $skills-main
     &.Contact
       .wrapper
         .head
-          background: fade-out($contact-main, 0.7)
+          background: $contact-main
 
 
 
