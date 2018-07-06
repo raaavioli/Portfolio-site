@@ -5,6 +5,8 @@
   height: 100%
   z-index: 3
   transition: all 0.5s cubic-bezier(0.7, 0, 0.3, 1)
+  &.pulledDown
+    top: 0px
   .arrow
     position: absolute
     width: 60px
@@ -73,8 +75,8 @@
     .wrapper
       position: relative
       width: 100%
-      min-height: calc(100% - 200px)
-      padding-bottom: 200px
+      min-height: calc(100% - 150px)
+      padding-bottom: 150px
       color: white
       z-index: 1
       .head
@@ -108,10 +110,12 @@
           z-index: 1
       .foot
         position: absolute
-        height: 200px
+        height: 150px
         bottom: 0px
         left: 0px
         right: 0px
+        .arrow
+          top: 50px
 
     &.About
       .wrapper
@@ -124,6 +128,7 @@
       .wrapper
         .head
           background: $portfolio-main
+        @import 'Portfolio-content'
         .foot
           background: $portfolio-main
     &.Skills

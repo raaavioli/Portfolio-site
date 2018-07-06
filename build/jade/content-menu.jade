@@ -9,18 +9,19 @@
       h1(class="option-text")= contentwrapper.text
     .info(class= contentwrapper.text)
       .wrapper
-        if contentwrapper.text == "About"
-          .head
+        .head
+          if contentwrapper.text == "About"
             img(src=imgpath+"about-thin.png") 
-            h1(class="option-text")= contentwrapper.text
-            include ./arrow
-          include ./About-content
-          .foot
-            include ./arrow
-        else
-          .head
+          else
             img(src=imgpath+contentwrapper.img+".png") 
-            h1(class="option-text")= contentwrapper.text
-            include ./arrow
-          .foot
-            include ./arrow
+          h1(class="option-text")= contentwrapper.text
+          include ./arrow
+          
+        if contentwrapper.text == "About"
+          include ./About-content
+        else if contentwrapper.text == "Portfolio"
+          include ./Portfolio-content
+          
+        .foot
+          include ./arrow
+          

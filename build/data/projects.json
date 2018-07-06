@@ -1,0 +1,24 @@
+{
+  "Projects": [
+    {"name": "MrDeconstruction",
+     "languages": ["Java"],
+     "img": "MrDeconstruction.png",
+     "description": "MrDeconstruction is a 2D platformer made in Java which I started building during the early months of 2018. The play-style is Super-Mario Bros-like, but with Minecraft mechanics as you 'construct' and 'destroy' the world to proceed in the game."
+   },
+   {"name": "Graphical Calculator",
+    "languages": ["Java"],
+    "img": "GraphicalCalculator.png",
+    "description": "Graphical Calculator is a small JavaFX-project which can plot arbitrary polynomials. The program supports multiple plots, custom grading of axis aswell as zooming to find any intersection between the functions."
+  },
+  {"name": "Proj3",
+   "languages": ["JADE", "SASS", "JS"],
+   "img": "something.png",
+   "description": "Holy shit, this project is the most le!"
+  },
+  {"name": "Proj4",
+   "languages": ["C#", "LIFE"],
+   "img": "something.png",
+   "description": "Spend alot of gold on this one."
+  }
+  ]
+}
