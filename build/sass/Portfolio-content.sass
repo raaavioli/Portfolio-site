@@ -27,12 +27,16 @@
       margin: 0 30px
       text-align: center
       transition: all 0.4s
+      opacity: 0
       &.center
         transform: none
+        opacity: 1
       &.center-left
         transform: perspective(400px) rotateY(-25deg) scale(0.7)
+        opacity: 0.5
       &.center-right
         transform: perspective(400px) rotateY(25deg) scale(0.7)
+        opacity: 0.5
       img
         width: 500px
         height: 300px
@@ -45,6 +49,11 @@
         margin-top: 10px
         font-size: 18px
         width: 500px
+        word-spacing: 5px
+        a
+          text-decoration: underline
+          cursor: pointer
+          color: $portfolio-comp
   .selection-wrapper
     margin: 40px auto 0px
     div

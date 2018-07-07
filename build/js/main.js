@@ -148,6 +148,8 @@ function loadPortfolioJSON() {
         $(".project-bar").find(".project-wrapper:nth-child("+(i+1)+")").addClass("center-right");
       }
     }
+    $(".headline-wrapper h2").text(projects[0].name);
+    $(".headline-wrapper h3").text(projects[0].languages);
     enablePortfolioSwipe();
   });
 }

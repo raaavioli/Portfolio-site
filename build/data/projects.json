@@ -1,24 +1,34 @@
 {
   "Projects": [
-    {"name": "MrDeconstruction",
-     "languages": ["Java"],
+    {
+     "name": "Flying Flame",
+     "languages": ["Java", "CSS", "Gimp (software)"],
+     "img": "FlyingFlame.png",
+     "description": "Flying Flame was the final project that I, together with a friend at KTH, built at the end of our first year of the Computer Science-programme at KTH. </br></br> The game is a 2D 'highscore-based' game where you control a helicopter to avoid and bomb parachuting, walking and stationary slimes, flying birds and homing projectiles. The game was drawn and animated by us ourselves and we put alot of effort into making a solid and interesting gameplay. The project was version controlled and can be found on <a href='https://gits-15.sys.kth.se/olieri/Projinda-18'>git</a>!"
+   },
+   {
+    "name": "MrDeconstruction",
+     "languages": ["Java", "Gimp"],
      "img": "MrDeconstruction.png",
      "description": "MrDeconstruction is a 2D platformer made in Java which I started building during the early months of 2018. The play-style is Super-Mario Bros-like, but with Minecraft mechanics as you 'construct' and 'destroy' the world to proceed in the game."
    },
-   {"name": "Graphical Calculator",
+   {
+    "name": "The Boss of the Black Market",
+    "languages": ["CSS", "HTML", "JS"],
+    "img": "BossOfTheBlackMarket.png",
+    "description": "The Boss of the Black Market is the first larger project/game I ever created. The code is messy, the functions are inefficient and the design is dull. But rather than being a <i>good project</i> I think this project more reflects on me as a creative person making use of the knowledge I have to solve problems and build things I probably should not be able to with my level of experience. </br></br> The game consists of an A*-pathfinding algorithm taking one or multiple ship(s) across the sea on a node-based-worldmap. The purpose is to visit harbors across the world to trade illegal goods and make big money!"
+  },
+  {
+    "name": "Graphical Calculator",
     "languages": ["Java"],
     "img": "GraphicalCalculator.png",
-    "description": "Graphical Calculator is a small JavaFX-project which can plot arbitrary polynomials. The program supports multiple plots, custom grading of axis aswell as zooming to find any intersection between the functions."
+    "description": "Graphical Calculator is a small JavaFX-project which can plot arbitrary polynomials. The program supports multiple plots, custom grading of the coordinate-axis aswell as custom zooming to find any intersection between the functions."
   },
-  {"name": "Proj3",
-   "languages": ["JADE", "SASS", "JS"],
-   "img": "something.png",
-   "description": "Holy shit, this project is the most le!"
-  },
-  {"name": "Proj4",
-   "languages": ["C#", "LIFE"],
-   "img": "something.png",
-   "description": "Spend alot of gold on this one."
+  {
+    "name": "To be continued...",
+    "languages": ["><>", "><>", "><>"],
+    "img": "none",
+    "description": "No one knows what projects might show up here in the near future!"
   }
   ]
 }
