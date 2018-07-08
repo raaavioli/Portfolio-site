@@ -4,7 +4,7 @@
      "name": "Flying Flame",
      "languages": ["Java", "CSS", "Gimp (software)"],
      "img": "FlyingFlame.png",
-     "description": "Flying Flame was the final project that I, together with a friend at KTH, built at the end of our first year of the Computer Science-programme at KTH. </br></br> The game is a 2D 'highscore-based' game where you control a helicopter to avoid and bomb parachuting, walking and stationary slimes, flying birds and homing projectiles. The game was drawn and animated by us ourselves and we put alot of effort into making a solid and interesting gameplay. The project was version controlled and can be found on <a href='https://gits-15.sys.kth.se/olieri/Projinda-18'>git</a>!"
+     "description": "Flying Flame was the final project that I, together with a friend at KTH, built at the end of our first year of the Computer Science-programme at KTH. </br></br> The game is a 2D 'highscore-based' game where you control a helicopter to avoid and bomb parachuting, walking and stationary slimes, flying birds and homing projectiles. The game was drawn and animated by us ourselves and we put alot of effort into making a solid and interesting gameplay."
    },
    {
     "name": "MrDeconstruction",
@@ -27,7 +27,7 @@
   {
     "name": "To be continued...",
     "languages": ["><>", "><>", "><>"],
-    "img": "none",
+    "img": "",
     "description": "No one knows what projects might show up here in the near future!"
   }
   ]

@@ -1,7 +1,7 @@
 
 $(document).ready(function(){
   loadPortfolioJSON();
-  onReturnButtonClick();
+  onArrowButtonClick();
   setSmallScreenProperties();
   flipTeddy();
   scrollDownInfoBar();
@@ -16,16 +16,30 @@ function onScreenClick(){
   })
 }
 
-function onReturnButtonClick(){
+function onArrowButtonClick(){
   $(".arrow").each(function() {
     $(this).on('click', function(){
       if($(this).parent().hasClass("head") || $(this).parent().hasClass("foot")){
         $(".info").css("top","-100%");
+      }else if($(this).parent().hasClass("portfolio-arrows")){
+        if($(this).next().is(".arrow")){
+          if(swipeBar("left")){
+            $(".portfolio-arrows .arrow").css("display", "inherit");
+          }else{
+            $(".portfolio-arrows .arrow:first-child").css("display", "none");
+          }
+        }else{
+          if(swipeBar("right")){
+            $(".portfolio-arrows .arrow").css("display", "inherit");
+          }else{
+            $(".portfolio-arrows .arrow:last-child").css("display", "none");
+          }
+        }
       }else{
         $(".content-menu-wrapper").not(".screen .content-menu-wrapper").removeClass("pulledDown");
       }
-    })
-  })
+    });
+  });
 }
 
 function setSmallScreenProperties(){
@@ -72,6 +86,8 @@ function scrollDownInfoBar(){
   });
 };
 
+var widthWasSmallerThan820 = true;
+
 function setOnResize(){
   $(window).resize(function() {
     $(".info").each(function() {
@@ -95,13 +111,16 @@ function setOnResize(){
 function setNewProject(index) {
   var bar = $(".project-bar"),
       project = $(".project-wrapper:nth-child("+(index+1)+")"),
-      barMargin = (index) * ($(".project-wrapper.center img").outerWidth() + 60) + 30 + $(".project-wrapper.center img").outerWidth()/2;
+      wrapperMargin = parseInt($(".project-wrapper.center").css("margin-left")),
+      barMargin = (index) * ($(".project-wrapper.center img").outerWidth() + 2*wrapperMargin) + wrapperMargin + $(".project-wrapper.center img").outerWidth()/2;
 
-  if($(window).width() >= 1100){
+      //console.log();
+  if($(window).width() > 1100){
     bar.css("margin-left", 550 - barMargin);
   }else{
     bar.css("margin-left", $(window).width()/2 - barMargin);
   }
+
 
   $(".headline-wrapper").find("h2").text(projects[index].name);
   $(".headline-wrapper").find("h3").text(projects[index].languages);
@@ -154,12 +173,69 @@ function loadPortfolioJSON() {
   });
 }
 
+
+var touchStartTime = 0,
+    xStartPos;
 function enablePortfolioSwipe(){
   $(".selection-wrapper div").on('click', function() {
     var clickedIndex = $(this).index();
     $(".selected").removeClass("selected");
-    $(this).addClass("selected");
-
+    $(".selection-wrapper div:nth-child("+(clickedIndex+1)+")").addClass("selected");
     setNewProject(clickedIndex);
+    if(clickedIndex == 0){
+      $(".portfolio-arrows .arrow:last-child").css("display", "inherit");
+      $(".portfolio-arrows .arrow:first-child").css("display", "none");
+    }else if(clickedIndex == projects.length - 1){
+      $(".portfolio-arrows .arrow:first-child").css("display", "inherit");
+      $(".portfolio-arrows .arrow:last-child").css("display", "none");
+    }else{
+      $(".portfolio-arrows .arrow").css("display", "inherit");
+    }
   });
+
+  $(".project-bar").on('touchstart', function(event) {
+    touchStartTime = $.now();
+    xStartPos = event.originalEvent.touches[0].pageX;
+  });
+
+  $(".project-bar").on('touchend', function(event) {
+    var elapsed = $.now() - touchStartTime,
+        distance = event.originalEvent.changedTouches[0].pageX - xStartPos;
+
+    if(Math.abs(distance) > 150 && elapsed < 350){
+      if(Math.sign(distance) == -1){
+        if(swipeBar("right")){
+          $(".portfolio-arrows .arrow").css("display", "inherit");
+        }else{
+          $(".portfolio-arrows .arrow:last-child").css("display", "none");
+        }
+      }else{
+        if(swipeBar("left")){
+          $(".portfolio-arrows .arrow").css("display", "inherit");
+        }else{
+          $(".portfolio-arrows .arrow:first-child").css("display", "none");
+        }
+      }
+    }
+  });
+}
+
+/**
+  returns false if bar reaches an endpoint
+*/
+function swipeBar(direction){
+  var currentIndex = $(".selection-wrapper div.selected").first().index();
+  if(direction == "left" && currentIndex > 0){
+    $(".selected").removeClass("selected");
+    $(".selection-wrapper div:nth-child("+(currentIndex)+")").addClass("selected");
+    setNewProject(currentIndex-1);
+    return currentIndex != 1;
+  }else if(direction == "right" && currentIndex < projects.length-1){
+    $(".selected").removeClass("selected");
+    $(".selection-wrapper div:nth-child("+(currentIndex+2)+")").addClass("selected");
+    setNewProject(currentIndex+1);
+    return currentIndex != projects.length-2;
+  }else{
+    return false;
+  }
 }
