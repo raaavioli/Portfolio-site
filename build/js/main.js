@@ -83,6 +83,7 @@ function scrollDownInfoBar(){
   $(".thumbnail-wrapper").not($(".screen").children().children()).on('click', function() {
     var classname = $(this).find(".option-text").text();
     $(".info."+classname).css("top", "0px");
+    $(".info."+classname).scrollTop(0);
   });
 };
 
