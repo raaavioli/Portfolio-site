@@ -7,6 +7,7 @@ $(document).ready(function(){
   scrollDownInfoBar();
   setOnResize();
   onScreenClick();
+  moveSkillsTowardsMouse();
 });
 
 function onScreenClick(){
@@ -239,4 +240,33 @@ function swipeBar(direction){
   }else{
     return false;
   }
+}
+
+function moveSkillsTowardsMouse(){
+  $(".info.Skills").on('mousemove', function(event) {
+    $(this).find("h3").css("transition", "none");
+    $(".skillbox").each(function() {
+      if(!$(this).parents().hasClass("screen")){
+        $(this).find("h3").css("transform", "translateX("+0+"px) translateY("+0+"px)");
+        var osx = parseInt($(this).find("h3").offset().left),
+            osy = parseInt($(this).find("h3").offset().top),
+            xtranslation = parseInt(event.pageX) - osx - $(this).find("h3").width()/2,
+            ytranslation = parseInt(event.pageY) - osy - $(this).find("h3").height()/2,
+            maxradius = 75,
+            xy = calculateDist(xtranslation, ytranslation, maxradius),
+            shadeSize = ((Math.pow(xy[0],2) + Math.pow(xy[1],2)) / Math.pow(maxradius,2)) * 10;
+        $(this).find("h3").css("transform", "translateX("+xy[0]+"px) translateY("+xy[1]+"px)");
+        $(this).find("h3").css("text-shadow", (-xy[0])+"px "+(-xy[1])+"px "+shadeSize+"px rgba(0, 204, 0, 0.6)")
+      }
+    });
+  });
+}
+
+function calculateDist(x, y, maxdist){
+  var angle = Math.atan2(y, x),
+      newX = maxdist*Math.cos(angle),
+      newY = maxdist*Math.sin(angle),
+      hypothenuse = Math.pow(x,2) + Math.pow(y,2);
+
+  return hypothenuse > Math.pow(maxdist,2) ? [newX, newY] : [x, y];
 }

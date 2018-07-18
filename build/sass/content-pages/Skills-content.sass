@@ -1,0 +1,45 @@
+.skills-content
+  display: block
+  position: relative
+  color: black
+  padding-top: 40px
+  .skill-wrapper
+    position: relative
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    align-items: center
+    .skillbox
+      float: left
+      height: 100px
+      padding: 10px 40px
+      margin: 10px 50px
+      display: flex
+      justify-content: center
+      align-items: center
+      h3
+        color: fade-in($skills-main, 0.8)
+        text-transform: uppercase
+        font-size: 25px
+  .rating-wrapper
+    margin: 60px 0px
+    padding: 4px
+    width: 450px
+    height: 40px
+    border-radius: 10px
+    overflow: hidden
+    margin-left: calc(50% - 228px)
+    border: 2px solid $skills-comp
+    display: flex
+    justify-content: center
+    align-items: center
+    background: fade-out($skills-comp, 0.6)
+    span
+      background: fade-out($skills-comp, 0.3)
+      position: relative
+      width: 45px
+      height: 40px
+      &:first-child
+        border-radius: 8px 0 0 8px
+      &:last-child
+        border-radius: 0 8px 8px 0

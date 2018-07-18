@@ -2,7 +2,7 @@
 - var imgpath = "assets/";
 
 .content-menu-wrapper
-  include ./arrow
+  include ./items/arrow
   for contentwrapper in headtexts
     .thumbnail-wrapper(class= contentwrapper.text)
       img(src=imgpath+contentwrapper.img+".png")
@@ -15,13 +15,15 @@
           else
             img(src=imgpath+contentwrapper.img+".png") 
           h1(class="option-text")= contentwrapper.text
-          include ./arrow
+          include ./items/arrow
           
         if contentwrapper.text == "About"
-          include ./About-content
+          include ./content/About-content
         else if contentwrapper.text == "Portfolio"
-          include ./Portfolio-content
+          include ./content/Portfolio-content
+        else if contentwrapper.text == "Skills"
+          include ./content/Skills-content
           
         .foot
-          include ./arrow
+          include ./items/arrow
           
