@@ -254,9 +254,9 @@ function moveSkillsTowardsMouse(){
             ytranslation = parseInt(event.pageY) - osy - $(this).find("h3").height()/2,
             maxradius = 75,
             xy = calculateDist(xtranslation, ytranslation, maxradius),
-            shadeSize = ((Math.pow(xy[0],2) + Math.pow(xy[1],2)) / Math.pow(maxradius,2)) * 10;
+            shadeSize = ((Math.pow(xy[0],2) + Math.pow(xy[1],2)) / Math.pow(maxradius,2)) * 15;
         $(this).find("h3").css("transform", "translateX("+xy[0]+"px) translateY("+xy[1]+"px)");
-        $(this).find("h3").css("text-shadow", (-xy[0])+"px "+(-xy[1])+"px "+shadeSize+"px rgba(0, 204, 0, 0.6)")
+        $(this).find("h3").css("text-shadow", (-xy[0])+"px "+(-xy[1])+"px "+shadeSize+"px rgba(0, 204, 0, 0.8)")
       }
     });
   });
