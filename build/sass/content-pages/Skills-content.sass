@@ -20,10 +20,15 @@
       h3
         color: #666
         text-transform: uppercase
+        text-shadow: 0px 20px 15px rgba(0, 204, 0, 0.6)
         font-size: 25px
         cursor: pointer
+        &.selected-skill
+          transition: all 0.1s
+          transform: transition(0px)
+          text-shadow: 0px 3px 0px rgba(0, 204, 0, 1)
   .rating-wrapper
-    margin: 60px 0px
+    margin: 60px 0px 10px
     padding: 4px
     width: 450px
     height: 40px
@@ -32,15 +37,120 @@
     margin-left: calc(50% - 228px)
     border: 2px solid #666
     display: flex
-    justify-content: center
+    justify-content: flex-start
     align-items: center
     background: fade-out($skills-comp, 0.6)
     span
-      background: fade-out($skills-comp, 0.3)
       position: relative
-      width: 45px
+      background: fade-out($skills-comp, 0.3)
       height: 40px
+      width: 0px
+      transition: width 0.3s
       &:first-child
         border-radius: 8px 0 0 8px
       &:last-child
         border-radius: 0 8px 8px 0
+      &.visible
+        width: 45px
+      &.invisible
+        width: 0px
+  .rating-titles
+    position: absolute
+    margin: 0px 0px 60px
+    width: 450px
+    margin-left: calc(50% - 222px)
+    h3
+      color: #666
+      position: absolute
+      margin: 0px
+      text-align: center
+      &:first-child
+        left: 0px
+      &:nth-child(2)
+        width: 150px
+        left: 50%
+        margin-left: -75px
+      &:last-child
+        right: 0px
+
+
+
+@media screen and (max-width: 820px)
+  .skills-content
+    padding-top: 20px
+    .skill-wrapper
+      .skillbox
+        float: left
+        height: 70px
+        padding: 5px 20px
+        margin: 10px 50px
+        h3
+          color: #666
+          text-transform: uppercase
+          font-size: 20px
+          cursor: pointer
+          &.selected-skill
+    .rating-wrapper
+      margin: 40px 0px 10px
+      width: 450px
+      height: 30px
+      margin-left: calc(50% - 228px)
+      span
+        height: 30px
+        width: 0px
+        &:first-child
+        &:last-child
+        &.visible
+          width: 45px
+        &.invisible
+    .rating-titles
+      margin: 0px 0px 30px
+      margin-left: calc(50% - 222px)
+      h3
+        font-size: 16px
+
+@media screen and (max-width: 530px)
+  .skills-content
+    .skill-wrapper
+      .skillbox
+        float: left
+        height: 40px
+        padding: 5px 10px
+        margin: 5px 40px
+        h3
+          transition: all 0.1s
+          color: #666
+          text-transform: uppercase
+          font-size: 20px
+          cursor: pointer
+          &.selected-skill
+    .rating-wrapper
+      width: calc(90% - 8px)
+      height: 30px
+      margin-left: 5%
+      span
+        height: 30px
+        width: 0px
+        &:first-child
+        &:last-child
+        &.visible
+          width: 10%
+        &.invisible
+    .rating-titles
+      position: absolute
+      margin: 0px 0px 60px
+      width: 90%
+      margin-left: 5%
+      h3
+        color: #666
+        position: absolute
+        margin: 0px
+        text-align: center
+        &:first-child
+          left: 0px
+        &:nth-child(2)
+          width: 150px
+          left: 50%
+          margin-left: -75px
+        &:last-child
+          right: 0px

@@ -140,14 +140,15 @@ function setNewProject(index) {
 }
 
 var projects = [];
+var skilldata = [];
 function loadPortfolioJSON() {
   $.getJSON("../data/projects.json", function (data) {
     for(var i = 0; i < data.Projects.length; i++){
 
       var value = data.Projects,
           projectjson = JSON.parse('{ "name":"'+value[i].name+'", "languages":"'+value[i].languages+'", "img":"'+value[i].img+'", "description":"'+value[i].description+'"}');
-      projectjson.languages = projectjson.languages.replace(/,/g, " - ")
-      projects.push(projectjson)
+      projectjson.languages = projectjson.languages.replace(/,/g, " - ");
+      projects.push(projectjson);
 
       $(".project-bar").append(`
         <div class='project-wrapper'>
@@ -172,7 +173,50 @@ function loadPortfolioJSON() {
     $(".headline-wrapper h2").text(projects[0].name);
     $(".headline-wrapper h3").text(projects[0].languages);
     enablePortfolioSwipe();
+
+    for(var i = 0; i < data.Skills.length; i++){
+      var value = data.Skills,
+          skilljson = JSON.parse('{ "skill":"'+value[i].skill+'", "level":"'+value[i].level+'"}');
+      skilldata.push(skilljson);
+      $(".skill-wrapper").append(`
+        <div class="skillbox">
+          <h3>`+skilldata[i].skill+`</h3>
+        </div>`
+      );
+
+      $(".skill-wrapper").children().last().find("h3").on('click', function() {
+        var currentselected = $(".selected-skill");
+        var currentLevel = skilldata[$(".skill-wrapper").children().find("h3").index($(this)) - i].level;
+        //Has to remove 11 because of how I made the content-menu-wrapper included both in screen and as a separate div.
+        //It is not a good solution, but it does not really matter.
+
+        if(currentselected.length == 1 && !$(this).hasClass("selected-skill")){
+          currentselected.css("transition", "all 0.1s");
+          moveSkillboxElementRelativeToMouse(currentselected.parent());
+
+          setTimeout(function() {
+            currentselected.removeClass("selected-skill");
+          }, 100);
+        }
+        $(this).addClass("selected-skill");
+        $(this).removeAttr('style');
+
+
+        setLevelOfSkill(currentLevel);
+      });
+    }
   });
+}
+
+function setLevelOfSkill(skillLevel) {
+  for(k = 1; k <= 10; k++){
+    $(".rating-wrapper span:nth-child("+k+")").removeClass("invisible visible");
+    if(k <= skillLevel){
+      $(".rating-wrapper span:nth-child("+k+")").addClass("visible");
+    }else{
+      $(".rating-wrapper span:nth-child("+k+")").addClass("invisible");
+    }
+  }
 }
 
 
@@ -204,7 +248,7 @@ function enablePortfolioSwipe(){
     var elapsed = $.now() - touchStartTime,
         distance = event.originalEvent.changedTouches[0].pageX - xStartPos;
 
-    if(Math.abs(distance) > 150 && elapsed < 350){
+    if(Math.abs(distance) > 75 && elapsed < 350){
       if(Math.sign(distance) == -1){
         if(swipeBar("right")){
           $(".portfolio-arrows .arrow").css("display", "inherit");
@@ -246,17 +290,8 @@ function moveSkillsTowardsMouse(){
   $(".info.Skills").on('mousemove', function(event) {
     $(this).find("h3").css("transition", "none");
     $(".skillbox").each(function() {
-      if(!$(this).parents().hasClass("screen")){
-        $(this).find("h3").css("transform", "translateX("+0+"px) translateY("+0+"px)");
-        var osx = parseInt($(this).find("h3").offset().left),
-            osy = parseInt($(this).find("h3").offset().top),
-            xtranslation = parseInt(event.pageX) - osx - $(this).find("h3").width()/2,
-            ytranslation = parseInt(event.pageY) - osy - $(this).find("h3").height()/2,
-            maxradius = 75,
-            xy = calculateDist(xtranslation, ytranslation, maxradius),
-            shadeSize = ((Math.pow(xy[0],2) + Math.pow(xy[1],2)) / Math.pow(maxradius,2)) * 15;
-        $(this).find("h3").css("transform", "translateX("+xy[0]+"px) translateY("+xy[1]+"px)");
-        $(this).find("h3").css("text-shadow", (-xy[0])+"px "+(-xy[1])+"px "+shadeSize+"px rgba(0, 204, 0, 0.8)")
+      if(!$(this).find("h3").hasClass("selected-skill")){
+        moveSkillboxElementRelativeToMouse($(this));
       }
     });
   });
@@ -269,4 +304,35 @@ function calculateDist(x, y, maxdist){
       hypothenuse = Math.pow(x,2) + Math.pow(y,2);
 
   return hypothenuse > Math.pow(maxdist,2) ? [newX, newY] : [x, y];
+}
+
+function isTouchDevice() {
+  var prefixes = ' -webkit- -moz- -o- -ms- '.split(' ');
+  var mq = function(query) {
+    return window.matchMedia(query).matches;
+  }
+
+  if (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) {
+    return true;
+  }
+
+  // include the 'heartz' as a way to have a non matching MQ to help terminate the join
+  // https://git.io/vznFH
+  var query = ['(', prefixes.join('touch-enabled),('), 'heartz', ')'].join('');
+  return mq(query);
+}
+
+function moveSkillboxElementRelativeToMouse(skillboxElement) {
+  if(!skillboxElement.parents().hasClass("screen")){
+    skillboxElement.find("h3").css("transform", "translateX("+0+"px) translateY("+0+"px)");
+    var offsetx = parseInt(skillboxElement.find("h3").offset().left),
+        offsety = parseInt(skillboxElement.find("h3").offset().top),
+        xtranslation = parseInt(event.pageX) - offsetx - skillboxElement.find("h3").width()/2,
+        ytranslation = parseInt(event.pageY) - offsety - skillboxElement.find("h3").height()/2,
+        maxradius = parseInt($(window).width()) > 820 ? 75 : parseInt($(window).width()) > 530 ? 40 : 20,
+        xy = calculateDist(xtranslation, ytranslation, maxradius),
+        shadeSize = ((Math.pow(xy[0],2) + Math.pow(xy[1],2)) / Math.pow(maxradius,2)) * 15;
+    skillboxElement.find("h3").css("transform", "translateX("+xy[0]+"px) translateY("+xy[1]+"px)");
+    skillboxElement.find("h3").css("text-shadow", (-(xy[0] + 0.2*xy[0]))+"px "+(-(xy[1]+ 0.2*xy[1]))+"px "+shadeSize+"px rgba(0, 204, 0, 0.6)")
+  }
 }
