@@ -1,0 +1,77 @@
+.contact-content
+  display: flex
+  flex-direction: column
+  position: relative
+  color: black
+  padding: 30px 0px
+  overflow: hidden
+  text-align: center
+  h2
+    color: #444
+    padding: 0px
+    margin: 0px
+    &.headtext
+      font-size: 30px
+      margin: 30px 0px 10px
+    &.subtext
+      font-size: 22px
+      margin: 0px 0px 40px
+  .form-wrapper
+    width: 600px
+    margin-left: calc(50% - 300px)
+    input, textarea
+      font-family: 'Fira Sans', sans-serif
+      outline: none
+      font-size: 18px
+      border: 5px solid $contact-main
+      padding: 10px
+      &:focus
+        border: 5px solid $contact-comp
+    .horizontalwrapper
+      width: 100%
+      margin: 0px 0px 20px
+      input
+        width: calc(45% - 30px)
+        margin: 0px 2.5%
+    .verticalwrapper
+      width: 100%
+      input, textarea
+        width: calc(95% - 30px)
+        margin: 0px 2.5% 20px
+        &.description
+          height: 250px
+          margin-bottom: 10px
+    button
+      float: right
+      margin-right: 2.5%
+      font-family: 'Fira Sans', sans-serif
+      background: fade-out($contact-comp, 0.2)
+      border:
+        width: 5px
+        color: lighten(fade-in($contact-main, 0.2), 30%)
+      font-size: 30px
+      width: 25%
+      padding: 5px
+      color: white
+      &:active
+        border-style: inset
+        background: fade-out($contact-comp, 0.15)
+  h2.social-media-text
+    margin: 50px 0px 10px
+  .social-media
+    border: 5px solid lighten(fade-in($contact-main, 0.2), 30%)
+    border:
+      left: none
+      right: none
+    width: 100%
+    margin: 0px 0px 50px
+    padding: 10px
+    display: flex
+    flex-direction: row
+    justify-content: center
+    svg
+      width: 60px
+      height: 60px
+      margin: 0px 30px
+      path
+        fill: #b27fe5

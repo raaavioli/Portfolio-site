@@ -13,11 +13,12 @@ const paths = {
 	sass: 'build/sass',
 	jade: 'build/jade',
 	assets: 'build/assets',
+	json: 'build/data',
 	js: 'build/js',
 	output: 'output'
 };
 
-gulp.task('browser-sync', ['sass', 'jade', 'js', 'assets'], () => {
+gulp.task('browser-sync', ['sass', 'jade', 'js', 'assets', 'json'], () => {
 	browserSync({
 		server: { baseDir: './output'},
 		notify: false,
@@ -37,8 +38,13 @@ gulp.task('js', () => {
 });
 
 gulp.task('assets', () => {
-	return gulp.src(paths.assets + '/*')
+	return gulp.src(paths.assets + '/**/*')
 		.pipe(gulp.dest(paths.output+'/assets'));
+});
+
+gulp.task('json', () => {
+	return gulp.src(paths.json + '/*')
+		.pipe(gulp.dest(paths.output+'/data'));
 });
 
 gulp.task('sass', () => {
@@ -64,7 +70,9 @@ gulp.task('browser-reload', ()=> {
 gulp.task('watch', () => {
 	gulp.watch(paths.sass + '/**/*.sass', ['sass']);
 	gulp.watch(paths.jade + '/**/*.jade', ['jade-rebuild']);
-	gulp.watch(paths.js + '/*.js', ['browser-reload']);
+	gulp.watch(paths.js + '/*.js', ['js', 'browser-reload']);
+	gulp.watch(paths.json + '/*.json', ['json', 'browser-reload']);
+	gulp.watch(paths.assets + '/**/*', ['assets', 'browser-reload']);
 });
 
 gulp.task('default', ['browser-sync', 'watch']);
