@@ -75,3 +75,56 @@
       margin: 0px 30px
       path
         fill: #b27fe5
+
+@media screen and (max-width: 650px)
+  .contact-content
+    padding: 20px 0px
+    overflow: hidden
+    h2
+      color: #444
+      &.headtext
+        font-size: 26px
+        margin: 20px 0px 5px
+      &.subtext
+        font-size: 18px
+        margin: 10px 0px 20px
+    .form-wrapper
+      width: 95%
+      margin-left: 2.5%
+      input, textarea
+        font-size: 18px
+        padding: 10px
+      .horizontalwrapper
+        width: 100%
+        margin: 0px 0px 0px
+        input
+          width: calc(95% - 30px)
+          margin: 0px 2.5% 20px
+      .verticalwrapper
+        width: 100%
+        input, textarea
+          &.description
+            height: 200px
+            margin-bottom: 10px
+      button
+        width: calc(0.25 * 600px)
+    h2.social-media-text
+      margin: 50px 0px 10px
+    .social-media
+      border: 5px solid lighten(fade-in($contact-main, 0.2), 30%)
+      border:
+        left: none
+        right: none
+      width: 100%
+      margin: 0px 0px 50px
+      padding: 10px
+      display: flex
+      flex-wrap: wrap
+      flex-direction: none
+      justify-content: center
+      svg
+        width: 50px
+        height: 50px
+        margin: 10px 30px
+        path
+          fill: #b27fe5
