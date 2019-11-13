@@ -1,6 +1,12 @@
 {
   "Projects": [
       {
+       "name": "Hide and seek",
+       "languages": ["C++", "OpenGL"],
+       "img": "HideAndSeek.png",
+       "description": "Hide and seek is my latest large project developed during the spring-term of 2019. The game is a 3D capture the flag-type game with online multiplayer. I created the game from scratch in OpenGL, built my own data-serialization and set up my own server handling the data and processing client instructions through tcp-sockets. </br></br> The game is about keeping the flag in your hands, meanwhile your opponents will try to knock you down to grab the flag themselves. There are also items to boost your potential to take down the flag-keeper. The purpose of the project was to get familiar with OpenGL-programming as well as learning network-communication. I also implemented a maze-generator which uniquely generates the map every game."
+     },
+     {
        "name": "Flying Flame",
        "languages": ["Java", "CSS", "Gimp (software)"],
        "img": "FlyingFlame.png",
@@ -33,40 +39,36 @@
   ],
   "Skills": [
     {
-      "skill": "JAVA",
+      "skill": "Java",
+      "level": "9"
+    },
+    {
+      "skill": "C++",
       "level": "8"
     },
     {
-      "skill": "HTML",
+      "skill": "PostgreSQL",
       "level": "6"
     },
     {
-      "skill": "JADE",
-      "level": "8"
-    },
-    {
-      "skill": "CSS",
-      "level": "7"
-    },
-    {
-      "skill": "SASS",
-      "level": "9"
-    },
-    {
-      "skill": "JS",
-      "level": "7"
-    },
-    {
-      "skill": "Gulp",
+      "skill": "OracleSQL",
       "level": "5"
     },
     {
-      "skill": "TEAMWORK",
-      "level": "9"
+      "skill": "Front-end (Web)",
+      "level": "7"
     },
     {
-      "skill": "AMBITION",
-      "level": "10"
+      "skill": "Back-end (Web)",
+      "level": "6"
+    },
+    {
+      "skill": "Planning",
+      "level": "5"
+    },
+    {
+      "skill": "Teamwork",
+      "level": "9"
     },
     {
       "skill": "CREATIVITY",
@@ -77,8 +79,8 @@
       "level": "7"
     },
     {
-      "skill": "Planning",
-      "level": "5"
+      "skill": "AMBITION",
+      "level": "10"
     }
   ]
 }

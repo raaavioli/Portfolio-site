@@ -8,6 +8,7 @@ $(document).ready(function(){
   setOnResize();
   onScreenClick();
   moveSkillsTowardsMouse();
+  setRealDesktopOnclick();
 });
 
 function onScreenClick(){
@@ -15,6 +16,16 @@ function onScreenClick(){
   screenwrapper.on('click', function(){
     $(".content-menu-wrapper").addClass("pulledDown");
   })
+}
+
+function setRealDesktopOnclick(){
+  $(".real-desktop").on('click', function() {
+    if($(this).hasClass("not-visible")){
+      $(this).removeClass("not-visible");
+    }else{
+      $(this).addClass("not-visible");
+    }
+  });
 }
 
 function onArrowButtonClick(){
