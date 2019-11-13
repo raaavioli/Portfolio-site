@@ -1,0 +1,86 @@
+{
+  "Projects": [
+      {
+       "name": "Hide and seek",
+       "languages": ["C++", "OpenGL"],
+       "img": "HideAndSeek.png",
+       "description": "Hide and seek is my latest large project developed during the spring-term of 2019. The game is a 3D capture the flag-type game with online multiplayer. I created the game from scratch in OpenGL, built my own data-serialization and set up my own server handling the data and processing client instructions through tcp-sockets. </br></br> The game is about keeping the flag in your hands, meanwhile your opponents will try to knock you down to grab the flag themselves. There are also items to boost your potential to take down the flag-keeper. The purpose of the project was to get familiar with OpenGL-programming as well as learning network-communication. I also implemented a maze-generator which uniquely generates the map every game."
+     },
+     {
+       "name": "Flying Flame",
+       "languages": ["Java", "CSS", "Gimp (software)"],
+       "img": "FlyingFlame.png",
+       "description": "Flying Flame was the final project that I, together with a friend at KTH, built at the end of our first year of the Computer Science-programme at KTH. </br></br> The game is a 2D 'highscore-based' game where you control a helicopter to avoid and bomb parachuting, walking and stationary slimes, flying birds and homing projectiles. The game was drawn and animated by us ourselves and we put alot of effort into making a solid and interesting gameplay."
+     },
+     {
+      "name": "MrDeconstruction",
+       "languages": ["Java", "Gimp"],
+       "img": "MrDeconstruction.png",
+       "description": "MrDeconstruction is a 2D platformer made in Java which I started building during the early months of 2018. The play-style is Super-Mario Bros-like, but with Minecraft mechanics as you 'construct' and 'destroy' the world to proceed in the game."
+     },
+     {
+      "name": "The Boss of the Black Market",
+      "languages": ["CSS", "HTML", "JS"],
+      "img": "BossOfTheBlackMarket.png",
+      "description": "The Boss of the Black Market is the first larger project/game I ever created. The code is messy, the functions are inefficient and the design is dull. But rather than being a <i>good project</i> I think this project more reflects on me as a creative person making use of the knowledge I have to solve problems and build things I probably should not be able to with my level of experience. </br></br> The game consists of an A*-pathfinding algorithm taking one or multiple ship(s) across the sea on a node-based-worldmap. The purpose is to visit harbors across the world to trade illegal goods and make big money!"
+    },
+    {
+      "name": "Graphical Calculator",
+      "languages": ["Java"],
+      "img": "GraphicalCalculator.png",
+      "description": "Graphical Calculator is a small JavaFX-project which can plot arbitrary polynomials. The program supports multiple plots, custom grading of the coordinate-axis aswell as custom zooming to find any intersection between the functions."
+    },
+    {
+      "name": "To be continued...",
+      "languages": ["><>", "><>", "><>"],
+      "img": "",
+      "description": "No one knows what projects might show up here in the near future!"
+    }
+  ],
+  "Skills": [
+    {
+      "skill": "Java",
+      "level": "9"
+    },
+    {
+      "skill": "C++",
+      "level": "8"
+    },
+    {
+      "skill": "PostgreSQL",
+      "level": "6"
+    },
+    {
+      "skill": "OracleSQL",
+      "level": "5"
+    },
+    {
+      "skill": "Front-end (Web)",
+      "level": "7"
+    },
+    {
+      "skill": "Back-end (Web)",
+      "level": "6"
+    },
+    {
+      "skill": "Planning",
+      "level": "5"
+    },
+    {
+      "skill": "Teamwork",
+      "level": "9"
+    },
+    {
+      "skill": "CREATIVITY",
+      "level": "8"
+    },
+    {
+      "skill": "EFFICIENCY",
+      "level": "7"
+    },
+    {
+      "skill": "AMBITION",
+      "level": "10"
+    }
+  ]
+}
